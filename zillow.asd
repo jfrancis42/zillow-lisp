@@ -1,7 +1,7 @@
 ;;;; zillow.asd
 
 (asdf:defsystem #:zillow
-  :description "A library for xxx's API."
+  :description "A Common Lisp client for pulling data from the public Zillow API."
   :author "Jeff Francis <jeff@gritch.org>"
   :license "MIT, see file LICENSE"
   :depends-on (#:drakma

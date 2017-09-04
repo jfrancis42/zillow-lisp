@@ -34,16 +34,16 @@ is detail about the error."
    "http://www.zillow.com/webservice/GetZestimate.htm" zwsid
    (format nil "&zpid=~A" zpid)))
 
-(defun get-search-results (zwsid &key address citystatezip rent-zestimate)
-  "Given a zwsid, an address, and a citystatezip, return search
+(defun get-search-results (zwsid &key address city-state-zip rent-zestimate)
+  "Given a zwsid, an address, and a city-state-zip, return search
 results from Zillow. If rent-zestimate is t, also return the Rent
 Zestimate."
-  ;; (zillow::get-search-results "X1-ZWz1fftypz6hhn_9tzan" :address "17611 69th ave se" :citystatezip "snohomish WA" :rent-zestimate t)
+  ;; (zillow::get-search-results "X1-ZWz1fftypz6hhn_9tzan" :address "17611 69th ave se" :city-state-zip "snohomish WA" :rent-zestimate t)
   (fetch-and-decode
    "http://www.zillow.com/webservice/GetSearchResults.htm" zwsid
    (concatenate 'string
 		"&address=" (quri:url-encode address :space-to-plus t)
-		"&citystatezip=" (quri:url-encode citystatezip :space-to-plus t)
+		"&citystatezip=" (quri:url-encode city-state-zip :space-to-plus t)
 		(if rent-zestimate "&rent-zestimate=true" ""))))
 
 (defun get-chart (zwsid &key zpid unit-type width height chart-duration)
@@ -81,16 +81,16 @@ Zillow. Include a rent-zestimate if :rent-zestimate is t."
 		"&count=" (format nil "~A" count)
 		(if rent-zestimate "&rent-zestimate=true" ""))))
 
-(defun get-deep-search-results (zwsid &key address citystatezip rent-zestimate)
-  "Given a zwsid, an address, and a citystatezip, return deep search
+(defun get-deep-search-results (zwsid &key address city-state-zip rent-zestimate)
+  "Given a zwsid, an address, and a city-state-zip, return deep search
 results from Zillow. If rent-zestimate is t, also return the Rent
 Zestimate."
-  ;; (zillow::get-deep-search-results "X1-ZWz1fftypz6hhn_9tzan" :address "17611 69th ave se" :citystatezip "snohomish WA" :rent-zestimate t)
+  ;; (zillow::get-deep-search-results "X1-ZWz1fftypz6hhn_9tzan" :address "17611 69th ave se" :city-state-zip "snohomish WA" :rent-zestimate t)
   (fetch-and-decode
    "http://www.zillow.com/webservice/GetDeepSearchResults.htm" zwsid
    (concatenate 'string
 		"&address=" (quri:url-encode address :space-to-plus t)
-		"&citystatezip=" (quri:url-encode citystatezip :space-to-plus t)
+		"&citystatezip=" (quri:url-encode city-state-zip :space-to-plus t)
 		(if rent-zestimate "&rent-zestimate=true" ""))))
 
 (defun get-updated-property-details (zwsid &key zpid)
