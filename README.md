@@ -2,9 +2,22 @@
 A Common Lisp client for pulling data from the public Zillow API.
 
 The Zillow API is documented at the following URL:
-https://www.zillow.com/howto/api/APIOverview.htm. You'll need to reference these pages, as this README file does not attempt to document the possible values for each parameter nor will it document the possible return values.
+https://www.zillow.com/howto/api/APIOverview.htm. You'll need to
+reference these pages, as this README file does not attempt to
+document the possible values for each parameter nor will it document
+the possible return values.
 
-Note that there are very specific requirements imposed on use of the Zillow API by Zillow. These restrictions are documented on the Zillow API page referenced above. You'll also need a "zwsid", which is a Zillow Web Services ID, which can be generated at this URL: https://www.zillow.com/webservice/Registration.htm. Zillow limits use of the API to 1000 queries per day, unless other arrangements are made.
+Note that there are very specific requirements imposed on use of the
+Zillow API by Zillow. These restrictions are documented on the Zillow
+API page referenced above. You'll also need a "zwsid", which is a
+Zillow Web Services ID, which can be generated at this URL:
+https://www.zillow.com/webservice/Registration.htm. Zillow limits use
+of the API to 1000 queries per day, unless other arrangements are
+made.
+
+Finally, note that any/all numeric values returned from the API are
+returned as strings, and it's up to the end user to convert these
+strings to integers or floats as needed.
 
 ### GetZestimate API
 https://www.zillow.com/howto/api/GetZestimate.htm
